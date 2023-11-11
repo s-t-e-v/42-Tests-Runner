@@ -38,11 +38,11 @@ int main(int argc, char **argv)
     std::cout << "| \033[36m42 Tests Runner\033[34m                      |\n";
     std::cout << "| \033[36mBy: @lbunelle\033[34m                        |\n";
     std::cout << "----------------------------------------\033[0m\n";
-    if (argc == 1)
+      if (argc == 1)
     {
         for (const auto &entry : fs::directory_iterator("tests"))
         {
-            if (entry.is_directory())
+            if (entry.is_directory() && entry.path().filename() != ".git")
             {
                 functionsToTest.push_back(entry.path().filename().string());
             }
